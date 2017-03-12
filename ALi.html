@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关于optionalChaining函数的封装</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*//字符串与对象互转
+		var jsObj = {};  
+	             jsObj.testArray = [1,2,3,4,5];  
+	             jsObj.name = 'CSS3';  
+	             jsObj.date = '8 May, 2011';  
+	             var str = JSON.stringify(jsObj);  
+	             var str1 = JSON.parse(str); 
+	             alert(str); 
+	            alert(str1);  */
+	     var user = {};
+	     user.adress = {
+	     	stree: "长安",
+	     	age: "21"
+	     };
+	     function optionalChaining(obj,chain){
+	     	if(!obj){ 
+	     		return document.writeln("undefined");	
+	     	}else {
+	     		var arr = chain.split(".");
+	     		for(var i=0; i<arr.length; i++){
+	     			if(!obj){
+	     			      break; 
+	     			      return document.writeln("undefined");
+	     			}else {
+	     			     obj = obj[arr[i]];
+	     			}
+	     		}
+	     		/*console.log(obj);*/
+	     		return document.writeln(obj);
+	     	}
+	     }
+	      optionalChaining(user,"adress.stree");
+	      optionalChaining(user,"age");
+	</script>
+</body>
+</html>
