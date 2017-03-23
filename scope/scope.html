@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承scope函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+                      Scope = function(){
+                      	 this.title = "My title";
+                      }
+                      Scope.prototype.clone = function() {
+                      	 var that = {};
+                      	 that.__proto__ = this;
+                      	 return that;
+                      }
+                      var ScopeA = new Scope();
+                      document.writeln(ScopeA.title);
+                      var ScopeB = ScopeA.clone();
+                      document.writeln(ScopeB.title);
+                      ScopeA.title = "ScopeA title";
+                      document.writeln(ScopeB.title);
+                      ScopeB.title = "ScopeB title";
+                      document.writeln(ScopeA.title);
+	</script>
+</body>
+</html>
