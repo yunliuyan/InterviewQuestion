@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组排序</title>
+</head>
+<body>
+	<script type="text/javascript">
+                 var arr=[1,3,10,7,8,7,4,5,2,17];
+                 var arraySort = function(array){
+                 	var indexArr = [];
+                 	array.map(function(item){
+                 		if(item%2){
+                 		        indexArr.push(item);
+                 		         array.splice(array.indexOf(item),1);
+                 		}
+                 		
+                 	});
+                 	return indexArr.concat(array);
+                 } ;
+                /* var arrSort = function(array){
+                        var index = 0;
+                        var j=0;
+                        for (var i = 0; i < array.length; i++) {
+                                if(!(array[i]%2)){
+                                   index = array.indexOf(array[i]);    
+                                   break;                            
+                           }
+                        };
+                        array.map(function(item){
+                                if(item%2){
+                                        array.splice((index+j),0,item);
+                                        array.splice(array.indexOf(item),1);
+                                        j++;
+                                }
+                        })
+                        return array;
+                 }*/
+                 document.write(arraySort(arr));
+	</script>
+</body>
+</html>
