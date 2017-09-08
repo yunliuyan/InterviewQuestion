@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关于arguments</title>
+</head>
+<body>
+	<script type="text/javascript">
+	       var a = function(){
+	       	var arrA = Array.prototype.slice.call(arguments);
+	       	return arrA.join(" ");
+	       }
+	       var b = function(){
+	       	var arrB = Array.prototype.slice.call(arguments);
+	       	return arrB.join(" ");
+	       }
+
+	       var c = function(){
+	       	var arrC = Array.prototype.slice.call(arguments);
+	       	if(arrC.length>2){
+	       		var arr = arrC.splice(0,2);//arr 为a函数的参数数组，arrC现在为b数组的参数数组
+	       		var parameter = function(arrays){
+	       			return  arrays.join(",");
+	       		}
+	       		return a(arr)+b(arrC);
+
+	       	}else{
+	       		return false;
+	       	}
+	       }
+	       console.log(c(1,2,3,4,5));
+	</script>
+</body>
+</html>

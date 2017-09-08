@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a继承b</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//1:
+                       function b(age,job){ 
+                                  this.age = age+1; 
+                                  this.job = job;
+                         } 
+                        b.prototype.show = function(){ 
+                                 alert("我是爸爸");
+                        } 
+                       function a(age,name){ 
+                               b.apply(this,arguments); 
+                            //b.call(this,age);
+                              this.name = name; 
+                       } 
+                     (function(){ 
+                              for(var i in b.prototype){ 
+                                   a.prototype[i]=b.prototype[i] 
+                              } 
+                     })(); 
+
+                   var parent = new b(20,"前端"); 
+                   var child = new a(21,"前端",'云流烟'); 
+                      child.show(); 
+                      console.log(child.age);
+                    //2:
+                    function a(){
+
+                    }  
+                    function b(){
+                    	call(this);
+                    }
+                    b.prototype = Object.create(a.prototype);
+                    //3:
+                    function a(){} 
+	       function b(){}
+	       a.prototype = new b();
+	</script>
+</body>
+</html>

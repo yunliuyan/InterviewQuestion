@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript快速排序</title>
+</head>
+<body>
+	<script type="text/javascript">
+	Function.prototype.method = function(name,func){
+                     this.prototype[name] = func;
+                     return this;
+	}
+	Array.method("QuicklySort",function(){
+	        if(this.length<1){
+	        	return this;
+	        }else{
+	        	var mid = Math.floor(this.length/2);
+	        	var pivot = this.splice(mid,1)[0];
+	        	var left = [];
+	        	var right = [];
+	        	for(var i=0;i<this.length;i+=1){
+	        	      if(this[i]<=pivot){
+	        	      	left.push(this[i]);
+	        	      }else{
+	        	      	right.push(this[i]);
+	        	      }
+	        	}
+	        	return left.QuicklySort().concat(pivot,right.QuicklySort());
+	        }
+	});
+	var array = [45,7,58,4,7,4,1,6,47];
+	document.write(array.QuicklySort());
+	</script>
+</body>
+</html>
